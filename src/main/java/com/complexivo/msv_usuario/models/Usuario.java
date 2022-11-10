@@ -3,6 +3,9 @@ package com.complexivo.msv_usuario.models;
 import org.springframework.data.annotation.Id;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "usuario")
@@ -10,9 +13,13 @@ public class Usuario {
     @javax.persistence.Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotBlank
     private String nombre;
     @Column(unique = true)
+    @NotBlank
+    @Email
     private String email;
+    @NotBlank
     private String password;
 
     public Long getId() {
